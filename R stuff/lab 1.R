@@ -3,7 +3,7 @@
 grumpData <- read.csv(file.choose(), header = T) # GPW3_GRUMP_SummaryInformation_2010.csv
 epi2010Data <- read.csv(file.choose(), header = T)# EPI2010
 
-
+# EPI exploration
 # fixing first row to be header
 names(epi2010Data) <- as.matrix(epi2010Data[1, ])
 epi2010Data <- epi2010Data[-1, ]
@@ -34,4 +34,12 @@ boxplot(epi2010Data$ENVHEALTH,epi2010Data$ECOSYSTEM)
 epiENV<-epi2010Data[!ENVHEALTH]
 epiENV <- epiENV[!is.na(epiENV)]
 hist(epiENV, prob=TRUE, main = "Histogram of ENVHEALTH", xlab = "ENVHEALTH")
+
+
+# Grump exploration
+View(grumpData) # don't need to fix the header
+
+
+
+
 

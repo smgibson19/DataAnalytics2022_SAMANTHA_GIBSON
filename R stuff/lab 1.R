@@ -4,50 +4,34 @@ grumpData <- read.csv(file.choose(), header = T) # GPW3_GRUMP_SummaryInformation
 epi2010Data <- read.csv(file.choose(), header = T)# EPI2010
 
 
-# Do these steps for EPI data and Grump data
+# fixing first row to be header
+names(epi2010Data) <- as.matrix(epi2010Data[1, ])
+epi2010Data <- epi2010Data[-1, ]
+epi2010Data[] <- lapply(epi2010Data, function(x) 
+  type.convert(as.character(x)))
+View(epi2010Data)
+
 
 # exploring the distribution
-summary(epi2010Data) 	# stats
-fivenum(epi2010Data, na.rm=TRUE)
-stem(EPI)		 # stem and leaf plot
-help(hist)
-hist(EPI)
-hist(EPI, seq(30., 95., 1.0), prob=TRUE)
-help(lines)
-lines(density(EPI,na.rm=TRUE,bw=1.)) 
-help(rug)
-rug(EPI) 
+fivenum(epi2010Data$ENVHEALTH, na.rm=TRUE)
+stem(epi2010Data$ENVHEALTH)		 # stem and leaf plot
+hist(epi2010Data$ENVHEALTH, prob=TRUE, main = "Histogram of ENVHEALTH", xlab = "ENVHEALTH")
+lines(density(epi2010Data$ENVHEALTH, na.rm=TRUE, bw=2.), col = "red")
+rug(epi2010Data$ENVHEALTH) 
 
-# Save your plots, name them. 
-# Save the commands you used to generate them.
+plot(ecdf(epi2010Data$ENVHEALTH), do.points=FALSE, verticals=TRUE, main = "Plot of ENVHEALTH") 
+par(pty="s") 
+qqnorm(epi2010Data$ENVHEALTH); qqline(epi2010Data$ENVHEALTH)
 
-# Exercise 1: fitting a distribution beyond histograms
+x <- rnorm(epi2010Data$ENVHEALTH)
+y <- rnorm(epi2010Data$ECOSYSTEM)
+qqplot(x, y, xlab = "ENVHEALTH", ylab = "ECOSYSTEM", main = "Q-Q Plot of ENVHEALTH")
+qqline(x)
 
-# plot(ecdf(EPI), do.points=FALSE, verticals=TRUE) 
-# par(pty="s") 
-# qqnorm(EPI); qqline(EPI)
-#  x<-seq(30,95,1)
-# qqplot(qt(ppoints(250), df = 5), x, xlab = "Q-Q plot for t dsn")
-# qqline(x)
+boxplot(epi2010Data$ENVHEALTH,epi2010Data$ECOSYSTEM)
 
-
-# do the same exploration and fitting for another 2 variables in the EPI_data, i.e. primary variables (DALY, WATER_H, .)
-# Try fitting other distributions - i.e. as ecdf or qq
-
-
-# Comparing distributions
-# boxplot(EPI,DALY)
-
-# intercompare: EPI, ENVHEALTH, ECOSYSTEM, DALY, AIR_H, WATER_H, AIR_EWATER_E, BIODIVERSITY ** (subject to possible filtering.)
-# Note 2010 and 2016 datasets..
-
-# Exercise 2: filtering (populations)
-# EPILand<-EPI[!Landlock]
-# Eland <- EPILand[!is.na(EPILand)]
-# hist(ELand)
-# hist(ELand, seq(30., 95., 1.0), prob=TRUE)
-
-
-# Repeat exercise 1.
-# EPI_South_Asia <- EPI[<what is this>]
+# exercise 2
+epiENV<-epi2010Data[!ENVHEALTH]
+epiENV <- epiENV[!is.na(epiENV)]
+hist(epiENV, prob=TRUE, main = "Histogram of ENVHEALTH", xlab = "ENVHEALTH")
 

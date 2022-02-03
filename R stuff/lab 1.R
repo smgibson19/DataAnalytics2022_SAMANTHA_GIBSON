@@ -14,7 +14,7 @@ View(epi2010Data)
 
 # ENVHEALTH
 fivenum(epi2010Data$ENVHEALTH)
-stem(epi2010Data$ENVHEALTH)		 # stem and leaf plot
+stem(epi2010Data$ENVHEALTH)		
 
 hist(epi2010Data$ENVHEALTH)
 hist(epi2010Data$ENVHEALTH, seq(0.05, 100, 1), prob = T, main = "Histogram of ENVHEALTH", xlab = "ENVHEALTH",)
@@ -37,7 +37,7 @@ qqplot(epi2010Data$ENVHEALTH, epi2010Data$ECOSYSTEM,  xlab = "ENVHEALTH", ylab =
 
 # AIR_H
 fivenum(epi2010Data$AIR_H)
-stem(epi2010Data$AIR_H)		 # stem and leaf plot
+stem(epi2010Data$AIR_H)		
 
 hist(epi2010Data$AIR_H)
 hist(epi2010Data$AIR_H, seq(0, 100, 1), prob = T, main = "Histogram of AIR_H", xlab = "AIR_H",)
@@ -61,7 +61,7 @@ qqplot(epi2010Data$AIR_H, epi2010Data$ECOSYSTEM,  xlab = "AIR_H", ylab = "ECOSYS
 
 # ECOSYSTEM
 fivenum(epi2010Data$ECOSYSTEM)
-stem(epi2010Data$ECOSYSTEM)		 # stem and leaf plot
+stem(epi2010Data$ECOSYSTEM)		 
 
 hist(epi2010Data$ECOSYSTEM)
 hist(epi2010Data$ECOSYSTEM, seq(0, 96, 1), prob = T, main = "Histogram of ECOSYSTEM", xlab = "ECOSYSTEM",)
@@ -85,4 +85,45 @@ qqplot(epi2010Data$AIR_H, epi2010Data$ECOSYSTEM,  xlab = "AIR_H", ylab = "ECOSYS
 # Grump exploration
 View(grumpData) # don't need to fix the header
 
+#Diff90
+fivenum(grumpData$Diff90)
+stem(grumpData$Diff90)		
+
+hist(grumpData$Diff90)
+hist(grumpData$Diff90, seq(-30, 20, 1), prob = T, main = "Histogram of Diff90", xlab = "Diff90",)
+lines(density(grumpData$Diff90, na.rm = T, bw = 1),  col = "red")
+rug(grumpData$Diff90) 
+
+plot(ecdf(grumpData$Diff90), do.points=FALSE, verticals=TRUE, main = "Plot of Diff90") 
+par(pty="s") 
+
+qqnorm(grumpData$Diff90); qqline(grumpData$Diff90)
+
+a <- seq(-30, 20, 1)
+qqplot(qt(ppoints(250), df = 5), a, xlab = "Diff90", main = "Q-Q Plot of Diff90")
+qqline(a)
+
+
+#Diff95
+fivenum(grumpData$Diff95)
+stem(grumpData$Diff95)		
+
+hist(grumpData$Diff95)
+hist(grumpData$Diff95, seq(-60, 20, 1), prob = T, main = "Histogram of Diff95", xlab = "Diff95",)
+lines(density(grumpData$Diff95, na.rm = T, bw = 1),  col = "red")
+rug(grumpData$Diff95) 
+
+plot(ecdf(grumpData$Diff95), do.points=FALSE, verticals=TRUE, main = "Plot of Diff95") 
+par(pty="s") 
+
+qqnorm(grumpData$Diff95); qqline(grumpData$Diff95)
+
+a <- seq(-60, 20, 1)
+qqplot(qt(ppoints(250), df = 5), a, xlab = "Diff95", main = "Q-Q Plot of Diff95")
+qqline(a)
+
+#compare both
+boxplot(grumpData$Diff90,grumpData$Diff95)
+
+qqplot(grumpData$Diff90, grumpData$Diff95,  xlab = "Diff90", ylab = "Diff95", main = "Q-Q Plot of Diff90 & Diff95")
 

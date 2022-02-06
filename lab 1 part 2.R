@@ -66,6 +66,8 @@ plot(mvData$Population, mvData$Income)
 boxplot(Income~Population, data = mvData)
 
 qplot(mvData$Population, mvData$Income, geom = "boxplot")
-
-
+ggplot(mvData, aes(x = Population, y = Income)) + geom_boxplot()
+qplot(interaction(mvData$Population, mvData$Income), mvData$City, geom = "boxplot")
+qplot(interaction(Population, Income), data = mvData, geom = "boxplot")
+ggplot(mvData, aes(x = interaction(Population, Income), y = City)) + geom_boxplot()
 

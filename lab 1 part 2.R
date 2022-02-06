@@ -43,12 +43,29 @@ ggplot(mvData, aes(x = Homeowners, y = Immigrant))+ geom_line() + geom_point()
 
 #bar graphs
 barplot(mvData$area, names.arg = mvData$City, xlab = "City", ylab = "Area")
-table(Immigrant)
-barplot(table(Immigrant))
+table(area)
+barplot(table(area))
 
 qplot(mvData$Population)
 qplot(factor(mvData$Population))
 
 qplot(factor(Population), data = mvData)
 ggplot(mvData, aes(x = factor(Population))) + geom_bar()
+
+
+#histograms
+hist(mvData$Immigrant)
+hist(mvData$Immigrant, breaks = 10)
+qplot(Immigrant, data = mvData, binwidth = 4)
+ggplot(mvData, aes(x = Immigrant)) + geom_histogram(binwidth = 4)
+ggplot(mvData, aes(x = Immigrant)) + geom_histogram(binwidth = 5)
+
+
+#box plots
+plot(mvData$Population, mvData$Income)
+boxplot(Income~Population, data = mvData)
+
+qplot(mvData$Population, mvData$Income, geom = "boxplot")
+
+
 

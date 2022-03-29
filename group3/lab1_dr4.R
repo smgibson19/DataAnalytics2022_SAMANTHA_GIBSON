@@ -1,4 +1,5 @@
 library(dr)
+
 data(ais)
 # default fitting method is "sir"
 s0 <- dr(LBM~log(SSF)+log(Wt)+log(Hg)+log(Ht)+log(WCC)+log(RCC)+

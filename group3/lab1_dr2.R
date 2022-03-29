@@ -1,5 +1,10 @@
+
 #4 prostate cancer data which have three classes: normal, primary, metastasis
+library(MultNonParam)
 data(prostate)
+# this data set isn't loading and I'm not sure why, is it because the MetaPCA isn't loading? 
+
+
 #There are currently 4 meta-pca methods. Run either one of following four.
 metaPC <- MetaPCA(prostate, method="Eigen", doPreprocess=FALSE, .scale=TRUE)
 metaPC <- MetaPCA(prostate, method="Angle", doPreprocess=FALSE)

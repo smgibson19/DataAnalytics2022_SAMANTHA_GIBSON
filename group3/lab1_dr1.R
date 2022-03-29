@@ -1,5 +1,8 @@
 install.packages("MetaPCA")
 library(MetaPCA)
+# this package isn't installing properly, not sure how to fix this 
+
+
 #Spellman, 1998 Yeast cell cycle data set
 #Consider each synchronization method as a separate data
 data(Spellman) 

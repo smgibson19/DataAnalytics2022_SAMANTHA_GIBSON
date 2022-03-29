@@ -1,8 +1,13 @@
-require(randomForest)
+library(randomForest)
+
+# implement random forest algorithm
+# can be used in unsupervised mode for assessing proximity among data points
+help("randomForest")
 fitKF <- randomForest(Kyphosis ~ Age + Number + Start,   data=kyphosis)
 print(fitKF) 	# view results
 importance(fitKF) # importance of each predictor
-#
+
+# another random forest analysis
 fitSwiss <- randomForest(Fertility ~ Agriculture + Education + Catholic, data = swiss)
 print(fitSwiss) # view results
 importance(fitSwiss) # importance of each predictor

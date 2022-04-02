@@ -1,4 +1,8 @@
+
+# download libraries and data
+library(psych)
 data(iqitems)
+
 #
 data(ability)
 ability.irt <- irt.fa(ability)

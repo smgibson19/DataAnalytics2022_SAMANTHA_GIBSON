@@ -1,17 +1,17 @@
+# import data
 data(iris)
-attach(iris)
+attach(iris) # attach makes it so I don't have to write iris$___ I can just say ___
 
 ## classification mode
 # default with factor response:
+help("svm") # support vector machines
 model <- svm(Species ~ ., data = iris)
 
 # alternatively the traditional interface:
 x <- subset(iris, select = -Species)
 y <- Species
 model <- svm(x, y) 
-
 print(model)
-summary(model)
 
 # test with train data
 pred <- predict(model, x)

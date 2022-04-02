@@ -1,3 +1,4 @@
+# importing libraries and data
 library(e1071) 
 m1 <- matrix( c( 
 0,    0,    0,    1,    1,    2,     1, 2,    3,    2,    3, 3, 0, 1,2,3, 
@@ -14,6 +15,8 @@ X = m1[,1:2]
 df = data.frame( X , Y ) 
 
 par(mfcol=c(4,2)) 
+
+# function that loops through costs and creates a model and plots each
 for( cost in c( 1e-3 ,1e-2 ,1e-1, 1e0,  1e+1, 1e+2 ,1e+3)) { 
 #cost <- 1 
 model.svm <- svm( Y ~ . , data = df ,  type = "C-classification" , kernel = 

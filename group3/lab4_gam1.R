@@ -1,3 +1,5 @@
+
+# importing
 library(mboost)
 library(TH.data)
 ?mboost_fit
@@ -38,7 +40,6 @@ z <- factor(1:3)
 extract(bols(z))
 
 gam1 <- gamboost(DEXfat ~ bbs(hipcirc) + bbs(kneebreadth) + bbs(anthro3a),data = bodyfat)
-#Using plot() on a gamboost object delivers automatically the partial eﬀects of the diﬀerent base-learners:
 par(mfrow = c(1,3)) ## 3 plots in one device
 plot(gam1) ## get the partial effects
 # and prevent overfitting
@@ -46,7 +47,7 @@ plot(gam1) ## get the partial effects
 gam2 <- gamboost(DEXfat ~ ., baselearner = "bbs", data = bodyfat,control = boost_control(trace = TRUE))
 set.seed(123) ## set seed to make results reproducible
 cvm <- cvrisk(gam2) ## default method is 25-fold bootstrap cross-validation
-## if package ’multicore’ is not available this will trigger a warning
+## if package multicore is not available this will trigger a warning
 # look at output
 cvm
 # set plot window back

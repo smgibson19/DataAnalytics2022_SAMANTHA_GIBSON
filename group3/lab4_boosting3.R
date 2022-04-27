@@ -1,3 +1,5 @@
+library(gbm)
+
 N <- 1000
 X1 <- runif(N)
 X2 <- 2*runif(N)

@@ -2,7 +2,7 @@
 tuning <- list(tuning.psi = c(3.443689, 4.685061))
 ## via model fitting function
 # perform cross-validation
-# note that the response is extracted from ’data’ in
+# note that the response is extracted from data in
 # this example and does not have to be supplied
 cvTuning(lmrob, formula = Y ~ ., data = coleman, tuning = tuning,
 cost = rtmspe, K = 5, R = 10, costArgs = list(trim = 0.1),
@@ -11,7 +11,10 @@ seed = 1234)
 # set up function call
 call <- call("lmrob", formula = Y ~ .)
 # perform cross-validation
-cvTuning(call, data = coleman, y = coleman$Y, tuning = tuning,6 densityplot.cv
-cost = rtmspe, K = 5, R = 10, costArgs = list(trim = 0.1),
-seed = 1234)
+cvTuning(call, data = coleman, y = coleman$Y, tuning = tuning,6, densityplot.cv)
+cost = rtmspe
+K = 5 
+R = 10
+costArgs = list(trim = 0.1)
+seed = (1234)
 

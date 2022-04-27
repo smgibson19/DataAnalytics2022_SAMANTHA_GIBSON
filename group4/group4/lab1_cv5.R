@@ -1,4 +1,4 @@
-## set up folds for cross-validation
+# set up folds for cross-validation
 folds <- cvFolds(nrow(coleman), K = 5, R = 50)
 ## compare LS, MM and LTS regression
 # perform cross-validation for an LS regression model

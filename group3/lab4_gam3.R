@@ -1,5 +1,6 @@
 install.packages("GAMBoost")
 # read - http://cran.r-project.org/web/packages/GAMBoost/GAMBoost.pdf
+# says this library isn't available in this version of R
 library(GAMBoost)
 x <- matrix(runif(100*8,min=-1,max=1),100,8)
 eta <- -0.5 + 2*x[,1] + 2*x[,3]^2

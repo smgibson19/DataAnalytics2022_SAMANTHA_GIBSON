@@ -67,3 +67,4 @@ pMod <- gbm( Freq ~ ., data=housing , distribution="poisson",
              n.trees=1000, cv.folds=5 , shrinkage=.01,
         interaction.depth = 3, n.cores=1)
 pMod
+

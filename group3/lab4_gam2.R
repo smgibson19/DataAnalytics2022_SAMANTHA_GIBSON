@@ -1,3 +1,4 @@
+
 library(mboost)
 data(cars)
 ### a simple two-dimensional example: cars data
@@ -11,11 +12,11 @@ tmp <- sapply(1:mstop(AIC(cars.gb)), function(i)
 lines(cars$speed, predict(cars.gb[i]), col = "red"))
 lines(cars$speed, predict(smooth.spline(cars$speed, cars$dist), cars$speed)$y, col = "green")
  
-### artificial example: sinus transformation
+# artificial example: sinus transformation
 x <- sort(runif(100)) * 10
 y <- sin(x) + rnorm(length(x), sd = 0.25)
 plot(x, y)
-### linear model
+# linear model
 lines(x, fitted(lm(y ~ sin(x) - 1)), col = "red")
-### GAM
+# GAM
 lines(x, fitted(gamboost(y ~ x, control = boost_control(mstop = 500))), col = "green")

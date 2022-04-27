@@ -7,6 +7,8 @@ importance(fitKF) # importance of each predictor
 
 help("importance")
 
+View(swiss)
+str(swiss)
 fitSwiss <- randomForest(Fertility ~ Agriculture + Education + Catholic, data = swiss)
 print(fitSwiss) # view results
 importance(fitSwiss) # importance of each predictor

@@ -18,7 +18,7 @@ print(fit.3, digits = 2, cutoff = .2, sort = TRUE)
 install.packages("GPArotation")
 library(GPArotation)
 
-fit <- principal(AthleticsData, nfactors=3, rotate=”varimax”)
+fit <- principal(AthleticsData, nfactors=3, rotate=varimax)
 fit # print results
 
 
